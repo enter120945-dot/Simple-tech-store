@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Tech Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="snow"></div>
+
+<header>
+    <h1>⚡ TECH STORE</h1>
+    <div class="search container">
+        <input type="text" id="searchInput" placeholder="🔎 Название товара...">
+        <button id="searchBtn">🔎</button>
+    </div>
+    <div class="header-buttons">
+        <button id="loginBtn" type="button">Log in</button>
+        <button id="filterBtn" type="button">🔍 Фильтры</button>
+        <button id="cartBtn" type="button">🛒 Корзина (<span id="cartCount">0</span>)</button>
+    </div>
+</header>
+
+<main class="products" id="products">
+    <!-- Карточки товаров -->
+</main>
+
+<!-- КОРЗИНА -->
+<div id="cartModal" class="modal hidden">
+    <div class="modal-content">
+        <h2>🛒 Корзина</h2>
+        <div id="cartItems"></div>
+        <h3>Итого: <span id="totalPrice">0</span> $</h3>
+        <button class="btn" id="orderBtn" type="button">Заказать</button>
+        <button class="btn" id="closeCart" type="button">Закрыть</button>
+    </div>
+</div>
+
+<!--Filter Modal-->
+<div id="filterModal" class="modal hidden">
+    <div class="modal-content">
+        <h3>🔍 Фильтры</h3>
+
+        <input id="filterText" placeholder="Характеристика (например: черный)">
+        <input id="filterTag" placeholder="Тег (ПК, ноутбук...)">
+
+        <button class="btn" id="applyFilter">Применить</button>
+        <button class="btn" id="resetFilter">Сбросить</button>
+        <button class="btn" id="closeFilter">Закрыть</button>
+    </div>
+</div>
+
+<!-- МОДАЛКА АДМИНА -->
+<div id="loginModal" class="modal hidden">
+    <div class="modal-content">
+        <h3>Admin Login</h3>
+        <input id="loginInput" type="text" placeholder="Введите ключ или email" autocomplete="off" autofocus>
+        <button class="btn" id="confirmLogin" type="button">Enter</button>
+    </div>
+</div>
+
+<div class="product-page">
+    <h1 id="productName"></h1>
+    <div class="price" id="productPrice"></div>
+    <img id="mainImage" class="product-img" src="">
+    <div class="description" id="productDesc"></div>
+    <button id="addToCart">Добавить в корзину</button>
+</div>
+
+<script src="script.js"></script>
+<!-- FOOTER CARD -->
+<footer class="footer-card">
+    <h3>Информация о владельце</h3>
+    <p>Владелец: V-Sauce! </p>
+    <p>Telegram: ... </p>
+    <p>Телефон: +... </p>
+    <p>Email: enter120945@gmail.com </p>
+    <p>Адрес: г. ... , .... </p>
+</footer>
+</body>
+<script>
+const snowContainer = document.getElementById("snow");
+
+function createSnowflake() {
+    const snowflake = document.createElement("div");
+    snowflake.className = "snowflake";
+    snowflake.textContent = "❄";
+
+    const size = Math.random() * 10 + 10;
+    snowflake.style.fontSize = size + "px";
+    snowflake.style.left = Math.random() * 100 + "vw";
+    snowflake.style.animationDuration = Math.random() * 8 + 10 + "s";
+    snowflake.style.opacity = Math.random();
+
+    snowContainer.appendChild(snowflake);
+
+    setTimeout(() => {
+        snowflake.remove();
+    }, 10000);
+}
+
+setInterval(createSnowflake, 80);
+</script>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Product Page</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: /*Задний фон осмотра*/
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("https://avatars.mds.yandex.net/i?id=9b94c0214ecd44bdf58320dc86683116ae209225-4922198-images-thumbs&n=13");/*Задний фон страницы осмотра*/
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 40px;
+    border-radius: 25px;
+    color: #ffffff;
+    backdrop-filter: blur(1px); /* придаёт легкий стеклянный эффект */
+}
+
+    .product-container {
+        max-width: 800px;
+        margin: auto;
+        background:rgba(41, 37, 37, 0.85);/*Заднй фон таблички товара в осмотре*/
+        color: #ffffff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        margin-bottom: 10px;
+    }
+
+    .price {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+/* Кнопка Назад */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    background: linear-gradient(45deg, #0072ff, #00c6ff);
+    border-radius: 50px;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 198, 255, 0.4);
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 198, 255, 0.6);
+}
+
+    .main-image {
+        width: 100%;
+        height: 400px;
+        object-fit: contain;
+        margin-bottom: 20px;
+        background: #000000;/*Цвет бортов изображения*/
+        border-radius: 10px;
+    }
+
+    .description {
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .add-cart {
+        padding: 12px 25px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 8px;
+        background: #6200ff;
+        color: #ffffff;
+    }
+
+    .add-cart:hover {
+        opacity: 0.85;
+    }
+</style>
+</head>
+
+<body>
+<header>
+    <h1>⚡ TECH STORE</h1>
+    <a href="index.html" class="btn">⬅ Назад</a>
+</header>
+<div class="product-container">
+    <h1 id="productName"></h1>
+    <div class="price" id="productPrice"></div>
+
+    <!-- ОДНО изображение -->
+    <img id="mainImage" class="main-image" src="" alt="Product image">
+
+    <div class="description" id="productDesc"></div>
+
+    <button class="add-cart" id="addToCart">Добавить в корзину</button>
+</div>
+
+<script src="product.js"></script>
+</body>
+</html>
+

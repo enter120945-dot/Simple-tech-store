@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Оформление заказа</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: /*Задний фон осмотра*/
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("https://avatars.mds.yandex.net/i?id=dc1b5304d6a2ebf8cb77274ef4a1d92ea1885f8d-6898416-images-thumbs&n=13");/*Задний фон страницы осмотра*/
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 40px;
+    border-radius: 25px;
+    color: #ffffff;
+    backdrop-filter: blur(1px); /* придаёт легкий стеклянный эффект */
+    }
+
+.order-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.order-products {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.order-products img {
+    width: 120px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.delivery {
+    background: #2b7cff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.payment {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.pay-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    background: transparent;
+    cursor: pointer;
+}
+
+.pay-btn.active {
+    background: #2b7cff;
+    color: #fff;
+}
+
+.cards {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.cards div {
+    padding: 6px 12px;
+    background: #1c1c1c;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+/* 🎆 САЛЮТ */
+.firework {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: explode 1.2s ease-out forwards;
+}
+
+@keyframes explode {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+#celebration {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+#celebration h1 {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 36px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="celebration" style="display:none;">
+</div>
+
+<header>
+    <h1>⚡ TECH STORE</h1>
+    <a href="index.html" class="btn">⬅ Назад</a>
+</header>
+
+<main class="order-container" id="order"></main>
+
+<script>
+const orderList = JSON.parse(localStorage.getItem("orderList"));
+const box = document.getElementById("order");
+
+if (!orderList || orderList.length === 0) {
+    box.innerHTML = "Корзина пуста";
+    throw new Error("No order");
+}
+
+const deliveryDate = new Date();
+deliveryDate.setDate(deliveryDate.getDate() + 7);
+
+let total = 0;
+
+box.innerHTML = `
+<h2>🧾 Оформление заказа</h2>
+
+<div class="order-products">
+${orderList.map(p=>{
+    total += p.qty * p.price;
+    return `<img src="${p.img}" title="${p.name}">`;
+}).join("")}
+</div>
+
+<div class="delivery">
+📦 Прибытие: ${deliveryDate.toLocaleString("ru-RU")}
+</div>
+
+<input placeholder="Ваше имя">
+<input placeholder="Телефон">
+<input placeholder="Город">
+<input placeholder="Улица">
+<input placeholder="Дом">
+
+<div class="payment">
+    <button class="pay-btn active">💵 Наличные</button>
+    <button class="pay-btn active">💳 Карта</button>
+</div>
+
+<div class="cards">
+    <div>VISA</div>
+    <div>MasterCard</div>
+    <div>UnionPay</div>
+</div>
+
+<h3>Итого: ${total} $</h3>
+
+<button class="btn" id="confirmOrder">Подтвердить заказ</button>
+`;
+
+document.getElementById("confirmOrder").onclick = () => {
+    const celebration = document.getElementById("celebration");
+    celebration.style.display = "block";
+
+    for (let i = 0; i < 60; i++) {
+        const f = document.createElement("div");
+        f.className = "firework";
+        f.style.left = Math.random() * 100 + "%";
+        f.style.top = Math.random() * 60 + "%";
+        f.style.background = `hsl(${Math.random()*360},100%,50%)`;
+        celebration.appendChild(f);
+
+        setTimeout(() => f.remove(), 1200);
+    }
+
+    // очистка и возврат
+    setTimeout(() => {
+        localStorage.removeItem("orderList");
+        window.location.href = "index.html";
+    }, 3000);
+};
+
+</script>
+
+</body>
+</html>
