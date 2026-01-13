@@ -112,7 +112,6 @@ const productsData = [
     }
 ];
 
-/* ELEMENTS */
 const productsEl = document.getElementById("products");
 const cartModal = document.getElementById("cartModal");
 const cartItems = document.getElementById("cartItems");
@@ -131,7 +130,6 @@ const resetFilter = document.getElementById("resetFilter");
 const searchInput = document.getElementById("searchInput");
 const searchBtn = document.getElementById("searchBtn");
 
-// Поиск по имени товара
 searchBtn.onclick = () => {
     const text = searchInput.value.toLowerCase();
 
@@ -142,12 +140,9 @@ searchBtn.onclick = () => {
     renderProducts(filtered);
 };
 
-// Можно добавить ENTER для удобства
 searchInput.addEventListener("keypress", e => {
     if (e.key === "Enter") searchBtn.click();
 });
-
-/* ================= RENDER PRODUCTS ================= */
 
 function renderProducts(list) {
     productsEl.innerHTML = "";
@@ -171,7 +166,6 @@ function renderProducts(list) {
             <button class="view-btn">Посмотреть</button>
         `;
 
-        /* + and - buttons */
         card.querySelector(".plus").onclick = () => {
             p.qty++;
             card.querySelector(".qty").textContent = p.qty;
@@ -186,7 +180,6 @@ function renderProducts(list) {
             }
         };
 
-        /* PRODUCT PAGE */
         card.querySelector(".view-btn").onclick = () => {
             window.location.href = `product.html?id=${p.id}`;
         };
@@ -195,10 +188,7 @@ function renderProducts(list) {
     });
 }
 
-/* FIRST RENDER */
 renderProducts(productsData);
-
-/* ================= CART ================= */
 
 function updateCart() {
     cartItems.innerHTML = "";
@@ -235,8 +225,6 @@ function updateCart() {
     cartCount.textContent = count;
 }
 
-/* ================= ORDER ================= */
-
 orderBtn.onclick = () => {
     const orderList = productsData.filter(p => p.qty > 0);
 
@@ -249,12 +237,8 @@ orderBtn.onclick = () => {
     window.location.href = "order.html";
 };
 
-/* ================= CART OPEN / CLOSE ================= */
-
 cartBtn.onclick = () => cartModal.classList.remove("hidden");
 closeCart.onclick = () => cartModal.classList.add("hidden");
-
-/* ================= FILTER ================= */
 
 filterBtn.onclick = () => filterModal.classList.remove("hidden");
 closeFilter.onclick = () => filterModal.classList.add("hidden");
@@ -283,5 +267,6 @@ applyFilter.onclick = () => {
     renderProducts(filtered);
     filterModal.classList.add("hidden");
 };
+
 
 
