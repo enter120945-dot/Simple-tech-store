@@ -20,7 +20,6 @@ if (!product) {
     productPriceEl.textContent = product.price + " $";
     productDescEl.textContent = product.desc;
 
-    // ✅ ВАЖНО img, а не images
     mainImageEl.src = product.img;
     mainImageEl.alt = product.name;
 
@@ -38,3 +37,4 @@ if (!product) {
         alert("Товар добавлен в корзину");
     };
 }
+
