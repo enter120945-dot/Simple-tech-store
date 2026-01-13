@@ -12,7 +12,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    color: #ffffff;/*Цвет шрифта названия продукта*/
+    color: #ffffff;
     overflow-x: hidden;
 }
 
@@ -33,7 +33,7 @@ header button {
     border: none;
     cursor: pointer;
     background: linear-gradient(135deg, #000000, #0072ff);
-    color: #ffffff;/*Цвет шрифта кнопок корзины и др*/
+    color: #ffffff;
     font-size: 16px;
     transition: transform 0.2s ease;
 }
@@ -74,7 +74,7 @@ header button:hover {
 .search-container button {
     width: 40px;
     height: 40px;
-    border-radius: 50%; /* круглая кнопка */
+    border-radius: 50%; 
     border: none;
     background: linear-gradient(135deg, #0072ff, #00c6ff);
     color: white;
@@ -426,6 +426,7 @@ header button:hover {
     margin: 5px 0;
     font-size: 16px;
 }
+
 
 
 
