@@ -16,7 +16,6 @@ body {
     overflow-x: hidden;
 }
 
-/* HEADER */
 header {
     padding: 20px 40px;
     display: flex;
@@ -43,7 +42,6 @@ header button:hover {
     transform: scale(1.05);
 }
 
-/* SEARCH */
 .search-container {
     display: flex;
     justify-content: center;
@@ -131,7 +129,6 @@ header button:hover {
     background: #333;
 }
 
-/* PRODUCTS */
 .products {
     padding: 40px;
     display: grid;
@@ -139,9 +136,8 @@ header button:hover {
     gap: 30px;
 }
 
-/* PRODUCT CARD */
 .product-card {
-    background: rgba(41, 37, 37, 0.85);/*Цвет карточек на главной */
+    background: rgba(41, 37, 37, 0.85);
     backdrop-filter: blur(12px);
     border-radius: 20px;
     padding: 20px;
@@ -177,14 +173,13 @@ header button:hover {
     z-index: 2;
 }
 
-/* Слой свечения */
 .product-card::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    border-radius: 20px; /* совпадает с карточкой */
+    border-radius: 20px; 
     background: linear-gradient(
         135deg, 
         rgba(0, 198, 255, 0.3) 0%, 
@@ -195,7 +190,6 @@ header button:hover {
     animation: glowDiagonal 5s infinite ease-in-out;
 }
 
-/* CART CONTROLS */
 .cart-controls {
     display: flex;
     justify-content: center;
@@ -211,7 +205,7 @@ header button:hover {
     font-size: 20px;
     cursor: pointer;
     background: linear-gradient(135deg, #00c6ff, #0072ff);
-    color: rgb(255, 252, 252);/*Цвет + и -*/
+    color: rgb(255, 252, 252);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -226,7 +220,6 @@ header button:hover {
     text-align: center;
 }
 
-/* REMOVE ITEM BUTTON */
 .remove-item {
     margin-left: auto;
     background: transparent;
@@ -242,7 +235,6 @@ header button:hover {
     color: #ff0000;
 }
 
-/* VIEW BUTTON */
 .view-btn {
     margin-top: 12px;
     padding: 10px 25px;
@@ -260,7 +252,6 @@ header button:hover {
     box-shadow: 0 5px 15px rgba(255,204,51,0.6);
 }
 
-/* MODAL */
 .modal {
     position: fixed;
     inset: 0;
@@ -280,7 +271,6 @@ header button:hover {
     max-width: 400px;
 }
 
-/* ADMIN LOGIN MODAL */
 #loginModal input {
     width: 100%;
     padding: 12px;
@@ -311,7 +301,6 @@ header button:hover {
     transform: scale(1.05);
 }
 
-/* CART ITEMS */
 .cart-item {
     display: flex;
     align-items: center;
@@ -327,7 +316,6 @@ header button:hover {
     border-radius: 8px;
 }
 
-/* ANIMATIONS */
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -350,7 +338,6 @@ header button:hover {
     }
 }
 
-/* Анимация движения свечения по диагонали */
 @keyframes glowDiagonal {
     0% {
         transform: translate(-100%, 100%);
@@ -384,7 +371,6 @@ header button:hover {
     animation: fireworks 1s ease-out forwards;
 }
 
-/* SNOW */
 #snow {
     position: fixed;
     inset: 0;
@@ -399,7 +385,6 @@ header button:hover {
     animation: fall linear infinite;
 }
 
-/*CSS ДЛЯ СТРАНИЦЫ ТОВАРА*/
 .product-img {
     width: 800px;
     height: 400px;
@@ -423,8 +408,8 @@ header button:hover {
     max-width: 800px;
     margin: 50px auto 20px auto;
     padding: 20px 30px;
-    background: rgba(0, 0, 0, 0.75); /* полупрозрачный фон */
-    backdrop-filter: blur(12px);     /* размытие фона */
+    background: rgba(0, 0, 0, 0.75); 
+    backdrop-filter: blur(12px);     
     border-radius: 20px;
     color: #ffffff;
     text-align: center;
@@ -441,6 +426,7 @@ header button:hover {
     margin: 5px 0;
     font-size: 16px;
 }
+
 
 
 
