@@ -9,7 +9,7 @@
     body {
         font-family: Arial, sans-serif;
         padding: 20px;
-        background: /*Задний фон осмотра*/
+        background: 
         linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
         url("https://avatars.mds.yandex.net/i?id=dc1b5304d6a2ebf8cb77274ef4a1d92ea1885f8d-6898416-images-thumbs&n=13");/*Задний фон страницы осмотра*/
     background-size: cover;
@@ -18,7 +18,7 @@
     padding: 40px;
     border-radius: 25px;
     color: #ffffff;
-    backdrop-filter: blur(1px); /* придаёт легкий стеклянный эффект */
+    backdrop-filter: blur(1px); 
     }
 
 .order-container {
@@ -92,7 +92,7 @@ input {
     font-size: 13px;
 }
 
-/* 🎆 САЛЮТ */
+
 .firework {
     position: absolute;
     width: 8px;
@@ -208,7 +208,6 @@ document.getElementById("confirmOrder").onclick = () => {
         setTimeout(() => f.remove(), 1200);
     }
 
-    // очистка и возврат
     setTimeout(() => {
         localStorage.removeItem("orderList");
         window.location.href = "index.html";
@@ -219,3 +218,4 @@ document.getElementById("confirmOrder").onclick = () => {
 
 </body>
 </html>
+
